@@ -28,8 +28,6 @@ def walk_extensions() -> Iterator[str]:
             imported = importlib.import_module(module.name)
             for name, obj in inspect.getmembers(imported):
                 if inspect.isclass(obj) and issubclass(obj, Group):
-                    # https://github.com/Rapptz/discord.py/blob/master/discord/ext/commands/bot.py#L899
-                    # obj.__name__
                     yield obj
 
 
